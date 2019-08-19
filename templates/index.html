@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MARS Wiki</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type = "text/css" href="css/style.css"
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a></p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class = "heading">Latest Mars News</h2>
+        <h3>{{mars_data.latest_news_title}}</h4>
+         <h4>{{mars_data.latest_news_body}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "col-md-7">
+        <h2 class="heading">Featured MARS Image</h2>
+        <img src={{mars_data.latest_image_url}} class="img-fluid mw-100" style="max-width: 600px; max-height: 600px;;" alt = "Latest MARS Image">
+      </div>
+      <div class = "col-md-5">
+          <h2 class="heading">Featured MARS Image</h2>
+          
+        </div>  
+    </div>
+
+  </div>
+</body>
+
+</html>
