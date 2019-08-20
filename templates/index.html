@@ -26,17 +26,33 @@
       </div>
     </div>
     <div class="row">
-      <div class = "col-md-7">
+      <div class = "col-md-8 col-sm-8 col-xs-8">
         <h2 class="heading">Featured MARS Image</h2>
-        <img src={{mars_data.latest_image_url}} class="img-fluid mw-100" style="max-width: 600px; max-height: 600px;;" alt = "Latest MARS Image">
+        <img src={{featured_image.image_url}} class="img-responsive" alt = "Latest MARS Image">
       </div>
-      <div class = "col-md-5">
-          <h2 class="heading">Featured MARS Image</h2>
-          
+      <div class = "col-md-4 col-sm-4 col-xs-4">
+          <div class= "row">
+            <div class="col-md-12">
+              <h4>Current Weather on MARS</h4>
+              <p>{{weather_data.weather_data}}</p>
+            </div>
+          </div>
+          <div class= "row">
+            <div class="col-md-12">
+
+              <h4>MARS Facts</h4>
+              {{mars_facts.facts | safe}}
+              
+              
+            </div>
+
         </div>  
     </div>
 
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
 </body>
 
 </html>
