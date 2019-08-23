@@ -89,3 +89,39 @@ def get_mars_facts():
 
     return mars_facts_dict
 
+def get_mars_hemisphere_images():
+    hemisphere_image_urls = []
+    image_url ={}
+
+    base_url = "https://astrogeology.usgs.gov"
+    search_hemi_path = "/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    mars_hemispheres_pics_url = base_url + search_hemi_path
+
+    response = requests.get(mars_hemispheres_pics_url)
+
+    soup = bs(response.text, 'lxml')
+
+
+    for hemi_div in soup.find_all("div", class_="item"):
+        
+        image_url ={}
+        
+        hemi_a = hemi_div.find("a")
+        hemi_full_page_url = base_url + hemi_a["href"]
+
+
+        response= requests.get(hemi_full_page_url)
+        hemi_soup = bs(response.text, 'lxml')
+
+        title = hemi_soup.find("h2").text
+        image_url["name"] = title
+        
+        for links in hemi_soup.find_all("a"):
+            if links.text == "Sample":
+                image_url["url"] = links["href"]
+                hemisphere_image_urls.append(image_url)
+                continue
+    
+    
+    return hemisphere_image_urls
+
